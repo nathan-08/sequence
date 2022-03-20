@@ -34,8 +34,8 @@ fun remove_empty_lists nil = nil
   | remove_empty_lists (nil::rest) = remove_empty_lists rest
   | remove_empty_lists (L::rest) = L :: remove_empty_lists rest;
           
-(*seq function takes a'' list list representing a set of sets
-* and returns an a'' list representing an ordered tuple*)
+(*seq function takes a list of lists representing a set of sets
+* and returns a list representing an ordered tuple*)
 exception InputError;
 fun seq nil = nil
   | seq Ls =
