@@ -4,7 +4,7 @@ fun is_in_list nil _ = false
 
 fun is_in_lists nil _ = true (*el is in all of no lists*)
   | is_in_lists (L::Ls) el =
-    is_in_list  L el andalso is_in_lists Ls el;
+    is_in_list L el andalso is_in_lists Ls el;
 
 fun common_element nil = NONE
   | common_element (L::Ls) =
@@ -35,12 +35,8 @@ fun remove_empty_lists nil = nil
 exception InputError;
 fun seq nil = nil
   | seq Ls =
-    let
-      val x = common_element Ls;
-    in
-      case x of
-           SOME(x) =>
-             x :: seq(remove_empty_lists(remove_from_lists Ls x))
-          | NONE => raise InputError
-    end;
+    case common_element Ls of
+      SOME(x) =>
+        x :: seq(remove_empty_lists(remove_from_lists Ls x))
+     | NONE => raise InputError
 
