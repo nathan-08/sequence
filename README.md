@@ -13,10 +13,10 @@ This program illustrates the computability of this
 encoding scheme.
 
 The seq function has this signature:
-fn: a' list list -> a' list
+`fn: a' list list -> a' list`
 
 for example:
-seq [[#"a",#"b"], ["#a"]] = ["#a", "#b"]
+`seq [[#"a",#"b"], ["#a"]] = ["#a", "#b"]`
 which represents this transformation:
 {{a,b},{a}} -> (a,b)
 
