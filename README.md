@@ -1,13 +1,13 @@
 In set theory,
 order can be encoded in the following manner.
 
-=======================================
+
 ordered tuple | set representation
-=======================================
+--------------|------------------------
 (a)           | {{a}}
 (a,b)         | {{a},{a,b}}
 (a,b,c)       | {{a},{a,b},{a,b,c}}
-=======================================
+
 
 This program illustrates the computability of this
 encoding scheme.
