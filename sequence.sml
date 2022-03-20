@@ -6,6 +6,8 @@ fun is_in_lists nil _ = true (*el is in all of no lists*)
   | is_in_lists (L::Ls) el =
     is_in_list L el andalso is_in_lists Ls el;
 
+(*common_element takes a list of lists and returns *)
+(*an element common to all inner lists or NONE*)
 fun common_element nil = NONE
   | common_element (L::Ls) =
     let
@@ -17,11 +19,13 @@ fun common_element nil = NONE
       foldl (f Ls) NONE L
     end;
 
+(*removes the element (2nd arg) from the lists (1st arg)*)
 fun remove_from_list nil _ = nil
   | remove_from_list (x::xs) y =
     if x = y then remove_from_list xs y
     else x :: remove_from_list xs y;
 
+(*removes the element (2nd arg) from the lists in the list (1st arg)*)
 fun remove_from_lists nil _ = nil
   | remove_from_lists (L::Ls) x =
     remove_from_list L x :: remove_from_lists Ls x;
@@ -30,8 +34,8 @@ fun remove_empty_lists nil = nil
   | remove_empty_lists (nil::rest) = remove_empty_lists rest
   | remove_empty_lists (L::rest) = L :: remove_empty_lists rest;
           
-(*find common element x, put in list*)
-(*remove x from lists*)
+(*seq function takes a'' list list representing a set of sets
+* and returns an a'' list representing an ordered tuple*)
 exception InputError;
 fun seq nil = nil
   | seq Ls =
